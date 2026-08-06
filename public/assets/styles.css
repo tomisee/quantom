@@ -14,18 +14,36 @@
         "Segoe UI",
         sans-serif;
 
-    color: #1d2733;
-    background-color: #f7f8fa;
+    --colour-page: #f4f7fb;
+    --colour-surface: #ffffff;
+    --colour-text: #162033;
+    --colour-muted: #597679;
+    --colour-border: #d8e0ea;
+
+    --colour-accent: #1858b8;
+    --colour-accent-strong: #10458f;
+    --colour-accent-soft: #e8f0fd;
+
+    --radius-small: 0..5rem;
+    --radius-large: 1rem;
+
+    --shadow-card:
+        0 1px 2px rgb(15 23 42 / 6%),
+        0 10px 30px rgb(15 23 42 / 7%);
+
+    color: var(--colour-text);
+    background-color: var(--colour-page);
 
     line-height: 1.6;
 }
 
-body {
-    margin: 0;
+html {
+    scroll-behavior: smooth;
 }
 
-a {
-    color: inherit;
+body {
+    min-height: 100vh;
+    margin: 0;
 }
 
 img {
@@ -33,14 +51,75 @@ img {
     max-width: 100%;
 }
 
+h1,
+h2,
+h3 {
+    margin-block-start: 0;
+
+    color: var(--colour-text);
+
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+}
+
+p {
+    margin-block-start: 0;
+}
+
+a {
+    color: var(--colour-accent);
+
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    color: var(--colour-accent-strong);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--colour-accent);
+    outline-offset: 4px;
+}
+
+/* Accessibility styles */
+.skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+
+    padding: 0.75rem 1rem;
+
+    border-radius: var(--radius-small);
+
+    color: #ffffff;
+    background-color: var(--colour-accent-strong);
+
+    font-weight: 700;
+    text-decoration: none;
+
+    transform: translateY(-200%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+
+/* Shared layout styles */
 .container {
     width: min(100% - 2rem, 70rem);
     margin-inline: auto;
 }
 
+/* Header styles */
+
 .site-header {
-    border-bottom: 1px solid #dce1e7;
-    background-color: #ffffff;
+    border-bottom: 1px solid var(--colour-border);
+    background-color: var(--colour-surface);
 }
 
 .site-header__inner {
@@ -53,7 +132,9 @@ img {
 }
 
 .site-title {
-    font-weight: 700;
+    color: var(--colour-text);
+
+    font-weight: 750;
     text-decoration: none;
 }
 
@@ -68,24 +149,117 @@ img {
 }
 
 .primary-navigation a {
+    color: var(--colour-muted);
+    
+    font-weight: 600;
     text-decoration: none;
 }
 
 .primary-navigation a:hover {
-    text-decoration: underline;
+    color: var(--colour-accent);
 }
 
+/* Hero section styles */
+
 .hero {
-    padding-block: 6rem;
+    padding-block: clamp(4rem, 10vw, 8rem);
+}
+
+.eyebrow,
+.card__category {
+    margin-bottom: 0.75rem;
+
+    color: var(--colour-accent);
+
+    font-size: 0.8rem;
+    font-weight: 750;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
 .hero h1 {
-    max-width: 14ch;
-    margin-block: 0 1.5rem;
+    max-width: 15ch;
+    margin-bottom: 1.5rem;
 
-    font-size: clamp(2.5rem, 7vw, 5rem);
-    line-height: 1.05;
+    font-size: clamp(2.75rem, 8vw, 5.5rem);
 }
+
+.hero__intro {
+    max-width: 44rem;
+    margin-bottom: 2rem;
+
+    color: var(--colour-muted);
+
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+}
+
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+/* Buttons */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 2.75rem;
+    padding: 0.65rem 1rem;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-small);
+
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.button--primary {
+    color: #ffffff;
+    background-color: var(--colour-accent);
+}
+
+.button--primary:hover {
+    color: #ffffff;
+    background-color: var(--colour-accent-strong);
+}
+
+.button--secondary {
+    border-color: var(--colour-border);
+
+    color: var(--colour-text);
+    background-color: var(--colour-surface);
+}
+
+.button--secondary:hover {
+    border-color: var(--colour-accent);
+
+    color: var(--colour-accent);
+}
+
+/* content sections
+TODO */
+
+/* cardstyles 
+TODO*/
+
+/*footer styles 
+TODO*/
+
+/*responsive behaviour
+TODO*/
+
+/*reduced motion
+TODO*/
+
+
+
+
+
+
 
 .hero p {
     max-width: 42rem;
