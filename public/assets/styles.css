@@ -20,8 +20,8 @@
     --colour-muted: #597679;
     --colour-border: #d8e0ea;
 
-    --colour-accent: #1858b8;
-    --colour-accent-strong: #10458f;
+    --colour-accent: rgb(209, 150, 0);
+    --colour-accent-strong: rgb(224, 146, 0);
     --colour-accent-soft: #e8f0fd;
 
     --radius-small: 0..5rem;
@@ -269,7 +269,7 @@ button:focus-visible {
 }
 
 .card {
-    padding: 1.75rem;
+    padding: 1.5rem;
 
     border: 1px solid var(--colour-border);
     border-radius: var(--radius-large);
