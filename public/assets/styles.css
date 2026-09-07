@@ -248,6 +248,8 @@ button:focus-visible {
     border-top: 1px solid var(--colour-border);
 }
 
+
+
 .section h2 {
     margin-bottom: 2rem;
 
@@ -257,6 +259,70 @@ button:focus-visible {
 .section > .container > p {
     max-width: 65ch;
 
+    color: var(--colour-muted);
+}
+
+.section-heading {
+    display: grid;
+    gap: 1.5rem;
+
+    margin-bottom: 2.5rem;
+}
+
+.section-heading h2 {
+    margin-bottom: 0;
+}
+
+.section-heading__intro {
+    max-width: 42rem;
+    margin: 0;
+
+    color: var(--colour-muted);
+}
+
+/* project grid */
+.project-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: 1.5rem;
+}
+
+/* experience list */
+.experience-list {
+    display: grid;
+    gap: 0;
+}
+
+.experience-item {
+    display: grid;
+    gap: 1.5rem;
+
+    padding-block: 2rem;
+
+    border-top: 1px solid var(--colour-border);
+}
+
+.experience-item:last-child {
+    border-bottom: 1px solid var(--colour-border);
+}
+
+.experience-item__meta {
+    color: var(--colour-muted);
+    font-size: 0.9rem;
+}
+
+.experience-item__meta p {
+    margin-bottom: 0.25rem;
+}
+
+.experience-item__content h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.experience-item__content p,
+.experience-item__content li {
     color: var(--colour-muted);
 }
 
@@ -336,6 +402,18 @@ button:focus-visible {
     html {
         scroll-behavior: auto;
     }
+
+@media (min-width: 50rem) {
+    .section-heading {
+        grid-template-columns: 1fr 1fr;
+        align-items: end;
+    }
+    
+    .experience-item {
+        grid-template-columns: 18rem 1fr;
+        gap: 3rem;
+    }
+}
 
     *,
     *::before,
